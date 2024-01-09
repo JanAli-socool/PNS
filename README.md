@@ -17,7 +17,7 @@ The Push Notification System enables real-time communication between the server 
 
 The Push Notification System is deployed on Streamlit Cloud. You can access the live application and test its features by visiting the following link:
 
-[![Open in Streamlit]([https://share.streamlit.io/your-username/push-notification-system/main/app.py](https://janali-socool-pns-app-wxhmij.streamlit.app/))
+[![Open in Streamlit][([https://share.streamlit.io/your-username/push-notification-system/main/app.py](https://janali-socool-pns-app-wxhmij.streamlit.app/))](https://janali-socool-pns-app-wxhmij.streamlit.app/)
 
 ## Setup Locally
 
