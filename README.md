@@ -13,67 +13,15 @@ The Push Notification System enables real-time communication between the server 
 - **Push Notifications:** Server can send push notifications to individual clients or broadcast messages to all clients.
 - **Simple UI:** Streamlit frontend for testing and interacting with the Push Notification System.
 
-## Setup
+## Deployment on Streamlit Cloud
 
-### Prerequisites
+The Push Notification System is deployed on Streamlit Cloud. You can access the live application and test its features by visiting the following link:
 
-- Python 3.7 or higher
-- Pip package manager
+[![Open in Streamlit]([https://share.streamlit.io/your-username/push-notification-system/main/app.py](https://janali-socool-pns-app-wxhmij.streamlit.app/))
 
-### Installation
+## Setup Locally
 
-1. **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/your-username/push-notification-system.git
-    cd push-notification-system
-    ```
-
-2. **Create a virtual environment:**
-
-    ```bash
-    python -m venv venv
-    ```
-
-3. **Activate the virtual environment:**
-
-    - **On Windows:**
-
-        ```bash
-        venv\Scripts\activate
-        ```
-
-    - **On Linux/Mac:**
-
-        ```bash
-        source venv/bin/activate
-        ```
-
-4. **Install dependencies:**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Running the Application
-
-1. **Start the FastAPI backend:**
-
-    ```bash
-    uvicorn main:app --reload
-    ```
-
-    This will start the FastAPI server at http://localhost:8000.
-
-2. **Open a new terminal and start the Streamlit frontend:**
-
-    ```bash
-    streamlit run app.py
-    ```
-
-    This will launch the Streamlit app at http://localhost:8501.
-
-3. **Access the Streamlit app in your web browser to test and send push notifications.
+For local setup and development, follow the instructions in the [Setup](#setup) section of the README.
 
 ## Usage
 
