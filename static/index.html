@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification System</title>
+</head>
+<body>
+    <h1>Push Notification System</h1>
+    <form id="notification-form">
+        <label for="client-id">Client ID:</label>
+        <input type="text" id="client-id" name="client_id" required>
+        <br>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" required>
+        <br>
+        <button type="button" onclick="connectWebSocket()">Connect</button>
+        <button type="button" onclick="sendNotification()">Send Notification</button>
+    </form>
+    <div id="notification-output"></div>
+
+    <script>
+        let ws;
+
+        function connectWebSocket() {
+            const clientId = document.getElementById("client-id").value;
+            ws = new WebSocket(`ws://localhost:8000/ws/${clientId}`);
+
+            ws.onmessage = function (event) {
+                const output = document.getElementById("notification-output");
+                output.innerHTML = `<p>${event.data}</p>`;
+            };
+
+            ws.onclose = function (event) {
+                console.error("WebSocket closed:", event);
+            };
+        }
+
+        function sendNotification() {
+            const clientId = document.getElementById("client-id").value;
+            const message = document.getElementById("message").value;
+
+            fetch(`http://localhost:8000/send_notification/${clientId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `message=${encodeURIComponent(message)}`
+            });
+        }
+
+        window.onbeforeunload = function () {
+            if (ws) {
+                ws.close();
+            }
+        };
+    </script>
+</body>
+</html>
